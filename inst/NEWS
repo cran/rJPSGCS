@@ -1,0 +1,41 @@
+The java archive for JPSGCS was downloaded from
+
+http://balance.med.utah.edu/wiki/index.php/JPSGCS
+
+in March of 2011. It was necessary to make the following changes to
+these java programs in order to interface with R:
+
+1) GeneDrops.java  - write output to a single file instead of multiple files.
+Added option -z to GeneDrops to have output file compressed.
+Overloaded functions writeTo and writePedigree to accept a GZIPOutputStream object.
+Modified the following files:
+GeneDrops.java
+jpsgcs/alun/genio/GeneticDataSource.java
+jpsgcs/alun/linkage/LinkageInterface.java
+jpsgcs/alun/linkage/LinkagePedigreeData.java
+jpsgcs/alun/linkage/LinkageIndividual.java
+
+2) Removed extra spaces from GeneDrops output file, 
+jpsgcs/alun/linkage/LinkagePedigreeData.java
+jpsgcs/alun/linkage/LinkageIndividual.java
+  added functions writeToNoSpace(PrintStream p) and shortStringNoSpace()
+
+3) TransposeLinkage.java can take output file name as argument, when given.
+ped.writeTranspose write to file instead of to screen.
+
+4) FitGMLD.java, GeneDrop.java - take output file name as an additional argument.
+writes output to a file instead of to screen. 
+
+5) Avoid crashing R when calling function CheckFormat.
+jpsgcs/alun/linkage/LinkageFormatter.java
+function crash(String s) throws RuntimeException instead of calling System.exit(1).
+
+jpsgcs/alun/linkage/LinkageParameterData.java
+LinkageParameterData(LinkageFormatter b, boolean forceConversion)
+throws a RuntimeException (because it calls 'LinkageFormatter.crash').
+
+CheckFormat.java - catch RuntimeException, that may be thrown in the line
+case 2: x = new LinkageDataSet(args[0],args[1],premake)
+since this function calls LinkageParameterData(LinkageFormatter b)
+which calls LinkageParameterData(LinkageFormatter b, boolean forceConversion).
+

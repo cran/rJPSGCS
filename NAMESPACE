@@ -1,0 +1,6 @@
+import("rJava")
+export("FitGMLD")
+export("GeneDrops")
+export("read.pedfile")
+export("write.pedfile")
+export("write.parfile")
