@@ -86,7 +86,7 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
     Rprintf("Cannot read %s\n", filename);
     return R_NilValue;
   }
-  Rprintf("Reading %s ...\nCan take a while...\n", filename);
+  // Rprintf("Reading %s ...\nCan take a while...\n", filename);
 
   is_X = LOGICAL(X)[0];
   if (snp_names != R_NilValue) {
@@ -146,7 +146,7 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
 //      return R_NilValue;
 //    }
     n_snps = (n_fields - 9)/2 ;
-    Rprintf("Found %i fields in the header, i.e. %i snps, hopefully...\n", n_fields, n_snps);
+    // Rprintf("Found %i fields in the header, i.e. %i snps, hopefully...\n", n_fields, n_snps);
   }
   gzrewind(filehandle);
 
@@ -161,8 +161,8 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
     /* read until breaking out because of eof or error */
     if (gzeof(filehandle)) {
       gzclose(filehandle);
-      Rprintf("current line [%d] : %.20s...\n", n_samples - 1, current_line);
-      Rprintf("EOF reached after %d samples\n", n_samples);
+      // Rprintf("current line [%d] : %.20s...\n", n_samples - 1, current_line);
+      // Rprintf("EOF reached after %d samples\n", n_samples);
       read_failed = 0; /* read_failed = "no" */
       break;
     }
@@ -178,8 +178,8 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
     } else {
       if (gzeof(filehandle)) {
         gzclose(filehandle);
-        Rprintf("last line [%d] : %.30s...\n", n_samples - 1, current_line);
-        Rprintf("EOF reached after %d samples\n", n_samples);
+        // Rprintf("last line [%d] : %.30s...\n", n_samples - 1, current_line);
+        // Rprintf("EOF reached after %d samples\n", n_samples);
         read_failed = 0; /* read_failed = "no" */
         break;
       }
@@ -262,7 +262,7 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
        where the error occurs */
     return R_NilValue;
   } else {
-    Rprintf("Read %i samples from input, now converting...\n", n_samples);
+    // Rprintf("Read %i samples from input, now converting...\n", n_samples);
   }
 
   /* we'll set the multiallelic mask now that we have seen all 
@@ -540,6 +540,6 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
   protected += 2;
 
   UNPROTECT(protected);
-  Rprintf("...done, %i samples with %i snps\n", n_samples, n_snps);
+  // Rprintf("...done, %i samples with %i snps\n", n_samples, n_snps);
   return ans;
 }

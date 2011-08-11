@@ -30,14 +30,14 @@ read.pedfile <- function(file, snp.names=NULL, assign=NULL, missing=NULL,
       info.file <- sub('\\.ped$', '.info', file)
     }
     if (!(file.access(map.file,mode=4))) {
-      cat("Found accompanying map file, reading it first\n")
+      #cat("Found accompanying map file, reading it first\n")
       snp.info <- read.pedfile.map(map.file)
       snp.names <- rownames(snp.info)
       join.info <- TRUE    
     } else
     if (!(file.access(info.file,mode=4))) {
       # file.access() return 0 for success
-      cat("Found accompanying info file, reading it first\n")
+      #cat("Found accompanying info file, reading it first\n")
       snp.info <- read.pedfile.info(info.file)
       snp.names <- rownames(snp.info)
       join.info <- TRUE

@@ -51,15 +51,15 @@ Sigal Blay, Jinko Graham and Brad McNeney
 \code{\link{FitGMLD}}
 }
 \examples{
-# 1. Gene-drop assuming independent loci using allele frequencies and
-# map information from the example data set. 
+# 1. Gene-drop assuming independent loci in the founders, using allele 
+# frequencies and map information from the example data set. 
 data(exdat)
 # Print out the data to examine missing data pattern.
 exdat$markers
 #Coerce to snp.matrix
 sdat<-as(exdat$markers,"snp.matrix") 
 # Need LINKAGE parameter and pedigree files as input.
-# For independent loci, use a standard LINKAGE parameter file.
+# For independent loci in the founders use a standard LINKAGE parameter file.
 write.parfile(snp.data=sdat, map=exdat$map, file="indep.par")
 # To construct the pedigree file for unrelated individuals, use
 # the pedinf="unrelated" option.
