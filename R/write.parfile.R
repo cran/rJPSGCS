@@ -1,15 +1,6 @@
-## function that creates parameter file in post-MAKEPED format
-
 write.parfile=function(snp.data,map,file="out.par"){
 
-    #snobj: matrix or data frame of snp data, with rows as subjects and 
-    #       columns as snp genotypes, coded 0, 1 and 2
-    #map: genetic map locations of each snp
-    #file: name of the parameter file to be generated
-
-    if(!is.data.frame(snp.data)) snp.data<-data.frame(snp.data)
-    
-    MAFs <-  snp.MAFs(snp.data)
+    MAFs <-  col.summary(snp.data)$MAF
     nSNPs=ncol(snp.data)
     
     ##adding lines
@@ -48,17 +39,3 @@ write.parfile=function(snp.data,map,file="out.par"){
     cat(c(1, 5, 0.2, 0.1 ), file = file, "\n",append=T)
 }
 
-
-snp.MAFs<-function(snp.data) {
-  # assumes rows of snp.data are subjects and columns are SNP genotypes
-  # SNP genotypes assumed coded as 0, 1, 2 
-  nsubj<-nrow(snp.data)
-  nsnps<-ncol(snp.data)
-  mafs<-rep(NA,nsnps)
-  for(i in 1:nsnps) {
-    ss<-snp.data[,i]
-    aa<-(1*sum(ss==1) + 2*sum(ss==2))/(2*nsubj)
-    mafs[i]<-ifelse(aa<0.5,aa,1-aa)
-  }
-  return(mafs)
-}

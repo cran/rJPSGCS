@@ -78,6 +78,7 @@ mom=c(1,2,1,1,1) # complete data
 dad=c(0,NA,0,1,0) # missing data at SNP 2
 child=c(NA,1,1,2,NA) #missing data at SNPs 1 and 5
 sdat<-rbind(mom,dad,child)
+colnames(sdat)<-paste("SNP",1:5,sep="")
 sdat<-as(sdat,"snp.matrix")
 write.parfile(snp.data=sdat, map=map, file="trio.par")
 # Block of code setting up pedigree information for mom, dad and child.
