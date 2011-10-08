@@ -40,12 +40,34 @@ Should the output pedigree file be compressed? Default is \code{FALSE}.
 No value. The output is in the file named by \code{gd.ped}.
 }
 \references{
-Documentation for the corresponding java program in JPSGCS 
+Documentation for the corresponding Java program in JPSGCS 
 is at
 \url{http://balance.med.utah.edu/wiki/index.php/GeneDrops}
 }
 \author{
 Sigal Blay, Jinko Graham and Brad McNeney
+}
+\note{
+This function can require large amounts of memory
+for large data sets (e.g. whole chromosomes of SNPs at the marker
+density of the HapMap project). The computations
+are done in Java, using functions from Alun
+Thomas' suite of Java Programs for Statistical Genetics and
+Computational Statistics (JPSGCS). The JPSGCS Java programs are accessed
+by R-wrappers provided by the \pkg{rJPSGCS} package, which 
+initializes the Java virtual machine (JVM) if not already 
+done so by another package. 
+To over-ride the default amount of 
+memory Java allocates for heap space,
+initialize the JVM \emph{before} loading \pkg{rJPSGCS} as
+follows:
+
+\preformatted{
+   options(java.parameters="-Xmx2048m") #set max heap space to 2GB
+   library(rJava)
+   .jinit() #initialize the JVM
+   library(rJPSGCS) # now load rJPSGCS
+   }
 }
 \seealso{
 \code{\link{FitGMLD}}
