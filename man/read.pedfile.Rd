@@ -12,8 +12,9 @@ subject characteristics (see \bold{Details} below)
 before the marker data. By contrast, pre-MAKEPED
 pedigree file format has only six column of pedigree and subject data
 before the marker data. This function was adapted from the
-\code{\link[snpMatrix]{read.snps.pedfile}} function 
-in the \pkg{snpMatrix} package, which reads pre-MAKEPED pedigree files.
+\code{\link{read.snps.pedfile}} function 
+in the \pkg{chopsticks} package (formerly
+\pkg{snpMatrix}), which reads pre-MAKEPED pedigree files.
 }
 \usage{
 read.pedfile(file, snp.names=NULL, assign=NULL, missing=NULL, 
@@ -60,7 +61,7 @@ Column 9: \tab Proband status (1=proband, 0=not); ignored by JPSGCS
 }
 The pre-MAKEPED format excludes columns 5 - 7. 
 \code{read.pedfile} is essentially 
-\code{\link[snpMatrix]{read.snps.pedfile}} for post-MAKEPED 
+\code{\link{read.snps.pedfile}} for post-MAKEPED 
 pedigree files, except that the option \code{low.mem} of
 \code{read.snps.pedfile}
 has not been implemented.
@@ -92,7 +93,7 @@ Sigal Blay, Jinko Graham and Brad McNeney
 
 \seealso{
 \code{\link{write.pedfile}},
-\code{\link[snpMatrix]{read.snps.pedfile}}
+\code{\link{read.snps.pedfile}}
 }
 \examples{
 data(exdat)

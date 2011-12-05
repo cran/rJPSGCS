@@ -1,6 +1,6 @@
 write.parfile=function(snp.data,map,file="out.par"){
 
-    MAFs <-  col.summary(snp.data)$MAF
+    MAFs <-  chopsticks:::summary(snp.data)$MAF
     nSNPs=ncol(snp.data)
     
     ##adding lines

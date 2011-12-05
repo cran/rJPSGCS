@@ -77,7 +77,7 @@ valid pedigree information.
 }
 \seealso{
 \code{\link{read.pedfile}},
-\code{\link[snpMatrix]{read.snps.pedfile}}
+\code{\link{read.snps.pedfile}}
 }
 \examples{
 data(exdat)
