@@ -4,6 +4,6 @@
   methods:::bind_activation(TRUE)
 }
 
-.Last.lib <- function(libname, pkgname) {
+.Last.lib <- function(libpath) {
   methods:::bind_activation(FALSE)
 }

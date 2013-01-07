@@ -3,8 +3,6 @@ write.parfile=function(snp.data,map,file="out.par"){
     MAFs <-  chopsticks:::summary(snp.data)$MAF
     nSNPs=ncol(snp.data)
     
-    ##adding lines
-    
     #n loci, risk locus, sexlinked, program code
     cat(c(nSNPs,0,0,5), file = file,"\n")
     
