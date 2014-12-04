@@ -74,6 +74,7 @@ follows:
 \code{\link{write.pedfile}}
 }
 \examples{
+\dontrun{
 data(exdat)
 sdat<-as(exdat$markers,"snp.matrix") #coerce to snp.matrix
 # Write a LINKAGE parameter file 
@@ -83,6 +84,7 @@ write.pedfile(pedinf="unrelated",snp.data=sdat,file="ftest.ped",transpose=TRUE)
 FitGMLD(par="test.par",fped="ftest.ped",out.ld.par="test.ld.par")
 # Clean up
 unlink(c("test.par","ftest.ped","test.ld.par"))
+}
 }
 \keyword{ file }
 \keyword{ models }

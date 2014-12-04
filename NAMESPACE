@@ -1,3 +1,4 @@
+import("chopsticks")
 import("rJava")
 export("FitGMLD")
 export("GeneDrops")
