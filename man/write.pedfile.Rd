@@ -62,11 +62,6 @@ The pre-MAKEPED format excludes columns 5 - 7.
 A numeric vector comprised of the number of subjects and SNPs written
 to the pedigree file.
 }
-\references{
-The JPSGCS webpage description of how the LINKAGE pedigree file
-format is used may be found at 
-\url{http://balance.med.utah.edu/wiki/index.php/LINKAGE}
-}
 \author{
 Sigal Blay, Jinko Graham and Brad McNeney
 }

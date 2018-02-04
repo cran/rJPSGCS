@@ -21,15 +21,15 @@ function(pedinf, snp.data, file, transpose=FALSE, sep=" ", eol="\n", na="0") {
 
   # Done error checking, now write appropriate file
   if(transpose) {
-    res <- .C("write_as_transposed_pedfile", as.character(file),
+    res <- .C(write_as_transposed_pedfile, as.character(file),
        as.integer(pedinf), snp.data@.Data, as.integer(nrow(snp.data)), as.integer(ncol(snp.data)),
        as.integer(ncol(pedinf)), as.character(sep), as.character(eol),
-       as.character(na), logical(1), PACKAGE="rJPSGCS")
+       as.character(na), logical(1))
   } else {
-    res <- .C("write_as_pedfile", as.character(file),
+    res <- .C(write_as_pedfile, as.character(file),
        as.character(pedinf), snp.data@.Data, as.integer(nrow(snp.data)), as.integer(ncol(snp.data)),
        as.integer(ncol(pedinf)), as.character(sep), as.character(eol),
-       as.character(na), logical(1), PACKAGE="rJPSGCS")
+       as.character(na), logical(1))
   }
   error <- res[[9]]
   if (error==1)

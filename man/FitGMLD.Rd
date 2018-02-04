@@ -34,15 +34,17 @@ Transposed LINKAGE pedigree files may be written by the
 \code{\link{write.pedfile}} function
 with the option \code{transpose=TRUE}.
 
-Further information on the graphical model is available from the
-program's description on the JPSGCS website:
-\url{http://balance.med.utah.edu/wiki/index.php/FitGMLD}
+Further information on the graphical model is available from the 
+article listed in the References.
 }
 \value{
 None. The result of the function call is the output file \code{out.ld.par}.
 }
 \references{
-\url{http://balance.med.utah.edu/wiki/index.php/FitGMLD}
+Thomas A. Estimation of graphical models 
+whose conditional independence graphs are interval
+graphs and its application to modeling linkage disequilibrium.
+Comput Stat Data Anal. 2009; 53:1818-1828. 
 }
 \author{
 Sigal Blay, Jinko Graham and Brad McNeney

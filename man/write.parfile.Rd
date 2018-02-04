@@ -28,11 +28,6 @@ None. The output is the parameter file.
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
 }
-\references{
-The JPSGCS webpage description of how the LINKAGE pedigree 
-and parameter file formats are used may be found at
-\url{http://balance.med.utah.edu/wiki/index.php/LINKAGE}
-}
 \author{
 Jinko Graham, Brad McNeney and Annick Nembot-Simo
 }

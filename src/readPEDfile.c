@@ -17,7 +17,7 @@
  * 02111-1307 USA.
  */
 
-#include "zlib.h"
+#include <zlib.h>
 #include "R.h"
 #include "Rinternals.h"
 
@@ -54,7 +54,7 @@ static void contentlist_destroy(linecontent_ptr start) {
 
 SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) {
   const char *filename = NULL;
-  int snp_length = 0;
+  // int snp_length = 0;
   int n_samples = 0;
   int n_snps = 0;
   int is_X = 0; /* default FALSE */
@@ -89,9 +89,9 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
   // Rprintf("Reading %s ...\nCan take a while...\n", filename);
 
   is_X = LOGICAL(X)[0];
-  if (snp_names != R_NilValue) {
-    snp_length = LENGTH(snp_names);
-  }
+  // if (snp_names != R_NilValue) {
+  //  snp_length = LENGTH(snp_names);
+  // }
 
   /* building the translation table */
   translation = malloc(128);
@@ -317,8 +317,8 @@ SEXP read_pedfile(SEXP in_file, SEXP snp_names, SEXP missing, SEXP X, SEXP sep) 
   /* filling the sample support data in */
   int i_sample = 0;
   for(cur_content_ptr = listhead.next; cur_content_ptr ; cur_content_ptr = cur_content_ptr->next) {
-    char samplename_buffer[2*MAX_FAMILY_NAME]; /* 2 times for family + individual */
-    snprintf(samplename_buffer, 2*MAX_FAMILY_NAME, "Family.%s.Individual.%s", cur_content_ptr->family, 
+    char samplename_buffer[4*MAX_FAMILY_NAME]; /* Was 2 times for family + individual, which looks right, but a recent compiler is complaining, so upped buffer size */
+    snprintf(samplename_buffer, 4*MAX_FAMILY_NAME, "Family.%s.Individual.%s", cur_content_ptr->family, 
 	     cur_content_ptr->member);
     SET_STRING_ELT(sample_names, i_sample, mkChar(samplename_buffer));
     SET_STRING_ELT(family, i_sample, mkChar(cur_content_ptr->family));

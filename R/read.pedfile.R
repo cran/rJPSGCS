@@ -63,8 +63,8 @@ read.pedfile <- function(file, snp.names=NULL, assign=NULL, missing=NULL,
     file <- saved.file
   }
   
-  result <- .Call("read_pedfile", file, snp.names, missing,
-                  as.logical(X), as.character(sep), PACKAGE="rJPSGCS")
+  result <- .Call(read_pedfile, file, snp.names, missing,
+                  as.logical(X), as.character(sep))
   if (join.info) {
     snp.info[['assignment']] <- as.factor(result$snp.support)
     result$snp.support <- snp.info

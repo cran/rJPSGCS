@@ -13,8 +13,8 @@ Statistical Genetics and Computational Statistics (JPSGCS).
 R wrappers for programs from JPSGCS required to 
 simulate data by gene drop (\code{\link{GeneDrops}}) based on a 
 fitted LD model (\code{\link{FitGMLD}}).
-JPSGCS java source code was downloaded from 
-\url{http://balance.med.utah.edu/wiki/index.php/JPSGCS}
+JPSGCS java source code was downloaded from Alun Thomas' website
+(no longer active)
 in March 2011. See the package NEWS file 
 (\code{RShowDoc("NEWS", package="rJPSGCS")}) for a list of modifications 
 needed to interface with R.
@@ -23,9 +23,5 @@ needed to interface with R.
 Sigal Blay, Jinko Graham, Brad McNeney and Annick Nembot-Simo
 
 Maintainer: Brad McNeney <mcneney@sfu.ca>
-}
-\references{
-JPSGCS home page:
-\url{http://balance.med.utah.edu/wiki/index.php}
 }
 \keyword{ package }

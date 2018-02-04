@@ -82,11 +82,6 @@ columns of the pedigree file, and }
 \item{\code{snp.support}}{a data frame of SNP information. NB: this is
 only meaningful if a \code{.map} or \code{.info} file was found.}
 }
-\references{
-The JPSGCS webpage description of how the LINKAGE pedigree file
-format is used may be found at 
-\url{http://balance.med.utah.edu/wiki/index.php/LINKAGE}
-}
 \author{
 Sigal Blay, Jinko Graham and Brad McNeney
 }

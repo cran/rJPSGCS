@@ -39,11 +39,6 @@ Should the output pedigree file be compressed? Default is \code{FALSE}.
 \value{
 No value. The output is in the file named by \code{gd.ped}.
 }
-\references{
-Documentation for the corresponding Java program in JPSGCS 
-is at
-\url{http://balance.med.utah.edu/wiki/index.php/GeneDrops}
-}
 \author{
 Sigal Blay, Jinko Graham and Brad McNeney
 }
